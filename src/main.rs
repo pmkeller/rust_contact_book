@@ -1,7 +1,20 @@
 use std::collections::HashMap;
 use std::io::{stdin, self, Write};
+use std::error::Error;
+use std::process;
+use std::ffi::OsString;
+use std::fs::File;
+use std::env;
 
-#[derive(Eq, PartialEq, Debug, Default)]
+use csv;
+use serde::Deserialize;
+
+
+
+//Global variables
+static PATH: &str = "contactbook.csv";
+
+#[derive(Eq, PartialEq, Debug, Default, Clone, Deserialize)]
 struct Contact {
     first_name: String,
     surname: String,
@@ -57,16 +70,16 @@ impl Contact {
     }
 
     //TODO remove data based on key search from vector
-    fn remove_data() {}
+    fn remove_data() {
+
+    }
 
     //TODO edit data based on key search from vector
-    fn edit_data() {}
+    fn edit_data() {
 
-    //TODO Import CSV Function
-// Function to import contact names from a csv file
-    fn import_csv() {
-        //check crates for a csv loader
     }
+
+
 
     //TODO Export CSV Function
 // Function to export contact vector to a csv file
@@ -91,6 +104,22 @@ fn input_capture(text: &str) -> String {
         .expect("Did not enter a correct string");
 
     return input;
+}
+
+//TODO Import CSV Function
+// Function to import contact names from a csv file
+fn import_csv() -> Result<(), Box<dyn Error>>{
+
+
+    let mut file = File::open("contactbook.csv");
+    let mut rdr = csv::Reader::from_path("contactbook.csv");
+
+    for result in rdr.records() {
+        let record = result?;
+        println!("{:?}", record);
+    }
+    Ok(())
+
 }
 
 //Functions calls input_capture and stores into struct
@@ -131,6 +160,9 @@ fn main() {
 
     let mut contact = Contact{..Default::default()};
 
-    user_data_capture(&mut contact);
-    contact.print_data();
+   import_csv();
+
+
+    //user_data_capture(&mut contact);
+    //contact.print_data();
 }

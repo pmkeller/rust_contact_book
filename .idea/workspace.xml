@@ -6,8 +6,33 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:BitBucket" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:GitHub" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:GitLab" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated />
@@ -21,7 +46,12 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d57ee3-9b2f-459c-a986-43c39fe4fa3f" name="Default Changelist" comment="" />
+    <list default="true" id="c4d57ee3-9b2f-459c-a986-43c39fe4fa3f" name="Default Changelist" comment="added struct Contact">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,7 +76,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Cargo.Run">
     <configuration name="Expand rust_contact_book" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
@@ -77,24 +107,6 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
-      <option name="command" value="run" />
-      <option name="channel" value="DEFAULT" />
-      <option name="allFeatures" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="backtrace" value="SHORT" />
-      <envs />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Cargo.Expand rust_contact_book" />
@@ -116,7 +128,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608155622589</updated>
-      <workItem from="1608155623955" duration="31487000" />
+      <workItem from="1608155623955" duration="38341000" />
     </task>
     <servers />
   </component>
@@ -128,7 +140,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -139,25 +163,33 @@
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
     <state x="1124" y="436" key="#com.intellij.ide.util.MemberChooser/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608174707225" />
-    <state width="2439" height="411" key="GridCell.Tab.0.bottom" timestamp="1608199143695">
+    <state width="2439" height="411" key="GridCell.Tab.0.bottom" timestamp="1608235130361">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.bottom/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608199143695" />
-    <state width="2439" height="411" key="GridCell.Tab.0.center" timestamp="1608199143695">
+    <state width="2439" height="411" key="GridCell.Tab.0.bottom/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608235130361" />
+    <state width="2439" height="411" key="GridCell.Tab.0.center" timestamp="1608235130361">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.center/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608199143695" />
-    <state width="2439" height="411" key="GridCell.Tab.0.left" timestamp="1608199143695">
+    <state width="2439" height="411" key="GridCell.Tab.0.center/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608235130361" />
+    <state width="2439" height="411" key="GridCell.Tab.0.left" timestamp="1608235130361">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.left/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608199143695" />
-    <state width="2439" height="411" key="GridCell.Tab.0.right" timestamp="1608199143695">
+    <state width="2439" height="411" key="GridCell.Tab.0.left/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608235130361" />
+    <state width="2439" height="411" key="GridCell.Tab.0.right" timestamp="1608235130361">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.right/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608199143695" />
-    <state x="1136" y="630" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608156800879">
+    <state width="2439" height="411" key="GridCell.Tab.0.right/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608235130361" />
+    <state x="977" y="138" key="SettingsEditor" timestamp="1608235127487">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state x="1136" y="630" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608156800879" />
+    <state x="977" y="138" key="SettingsEditor/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608235127487" />
+    <state x="911" y="449" key="Vcs.Push.Dialog.v2" timestamp="1608208312760">
+      <screen x="78" y="0" width="2482" height="1440" />
+    </state>
+    <state x="911" y="449" key="Vcs.Push.Dialog.v2/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608208312760" />
+    <state x="1136" y="630" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608208301277">
+      <screen x="78" y="0" width="2482" height="1440" />
+    </state>
+    <state x="1136" y="630" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608208301277" />
   </component>
 </project>

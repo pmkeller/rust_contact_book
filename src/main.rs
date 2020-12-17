@@ -14,7 +14,7 @@ struct Contact {
 
 #[allow(dead_code)]
 impl Contact {
-    fn new (first_name: String, surname: String, date_of_birth: String, address: String, tel: String, email: String) -> Self {
+    fn new(first_name: String, surname: String, date_of_birth: String, address: String, tel: String, email: String) -> Self {
         Self {
             first_name: first_name,
             surname: surname,
@@ -26,14 +26,13 @@ impl Contact {
         }
     }
 
-
     //Function used to push struct data into struct vector of hashmaps contact_book
     fn data_push(&mut self) {
-        let mut contact_hash =  HashMap::new();
+        let mut contact_hash = HashMap::new();
 
         contact_hash.insert("Name".to_string(), self.first_name.trim_end().to_string());
         contact_hash.insert("Surname".to_string(), self.surname.trim_end().to_string());
-        contact_hash.insert("DateofBirth".to_string(),self.date_of_birth.trim_end().to_string());
+        contact_hash.insert("DateofBirth".to_string(), self.date_of_birth.trim_end().to_string());
         contact_hash.insert("Address".to_string(), self.address.trim_end().to_string());
         contact_hash.insert("Tel".to_string(), self.tel.trim_end().to_string());
         contact_hash.insert("Email".to_string(), self.email.trim_end().to_string());
@@ -43,7 +42,6 @@ impl Contact {
 
     //Function to print contact book to screen
     fn print_data(&self) {
-
         if self.contact_book.len() > 0 {
             for contact_hash in &self.contact_book {
                 println!("--------------------------------------------------------------");
@@ -57,6 +55,28 @@ impl Contact {
             println!("Contact Book is empty");
         }
     }
+
+    //TODO remove data based on key search from vector
+    fn remove_data() {}
+
+    //TODO edit data based on key search from vector
+    fn edit_data() {}
+
+    //TODO Import CSV Function
+// Function to import contact names from a csv file
+    fn import_csv() {
+    }
+
+    //TODO Export CSV Function
+// Function to export contact vector to a csv file
+    fn export_csv() {
+    }
+
+    //TODO Search Function
+// iterate through
+    fn search_contact() {
+    }
+
 }
 
 // Function for getting user input and returns the input
@@ -92,38 +112,12 @@ fn  user_data_capture(p_contact: &mut Contact) {
     p_contact.data_push()
 }
 
-//TODO Import CSV Function
-// Function to import contact names from a csv file
-fn import_csv() {
-
-}
-
-//TODO Export CSV Function
-// Function to export contact vector to a csv file
-fn export_csv() {
-
-}
-
 //TODO function for search Function
 // Menu for searching by content(HashMaps Keys)
 fn search_ui(){
-
 }
 
-//TODO Search Function
-// iterate through
-fn search_contact() {
-}
 
-//TODO remove data based on key search from vector
-fn remove_data() {
-
-}
-
-//TODO edit data based on key search from vector
-fn edit_data(){
-
-}
 //Function that has the main menu
 fn main_ui(){
     //TODO make main menu for contact book.

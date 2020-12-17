@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
+  <component name="CargoProjects">
+    <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c4d57ee3-9b2f-459c-a986-43c39fe4fa3f" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="yyx69ww2" />
+  </component>
+  <component name="ProjectId" id="1lkywYFr5UZQxcjY7a7t0eKxqi4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Cargo.Run">
+    <configuration name="Expand rust_contact_book" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="expand --bin rust_contact_book --color=always --theme=GitHub --tests" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="command" value="run --package rust_contact_book --bin rust_contact_book" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -36,5 +90,74 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo.Expand rust_contact_book" />
+        <item itemvalue="Cargo.Expand rust_contact_book" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="RustProjectSettings">
+    <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\pet_a\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c4d57ee3-9b2f-459c-a986-43c39fe4fa3f" name="Default Changelist" comment="" />
+      <created>1608155622589</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608155622589</updated>
+      <workItem from="1608155623955" duration="22002000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1124" y="436" key="#com.intellij.ide.util.MemberChooser" timestamp="1608174707225">
+      <screen x="78" y="0" width="2482" height="1440" />
+    </state>
+    <state x="1124" y="436" key="#com.intellij.ide.util.MemberChooser/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608174707225" />
+    <state width="2439" height="411" key="GridCell.Tab.0.bottom" timestamp="1608178277429">
+      <screen x="78" y="0" width="2482" height="1440" />
+    </state>
+    <state width="2439" height="411" key="GridCell.Tab.0.bottom/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608178277429" />
+    <state width="2439" height="411" key="GridCell.Tab.0.center" timestamp="1608178277428">
+      <screen x="78" y="0" width="2482" height="1440" />
+    </state>
+    <state width="2439" height="411" key="GridCell.Tab.0.center/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608178277428" />
+    <state width="2439" height="411" key="GridCell.Tab.0.left" timestamp="1608178277428">
+      <screen x="78" y="0" width="2482" height="1440" />
+    </state>
+    <state width="2439" height="411" key="GridCell.Tab.0.left/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608178277428" />
+    <state width="2439" height="411" key="GridCell.Tab.0.right" timestamp="1608178277429">
+      <screen x="78" y="0" width="2482" height="1440" />
+    </state>
+    <state width="2439" height="411" key="GridCell.Tab.0.right/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608178277429" />
+    <state x="1136" y="630" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608156800879">
+      <screen x="78" y="0" width="2482" height="1440" />
+    </state>
+    <state x="1136" y="630" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608156800879" />
   </component>
 </project>

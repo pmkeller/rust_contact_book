@@ -92,6 +92,46 @@ fn  user_data_capture(p_contact: &mut Contact) {
     p_contact.data_push()
 }
 
+//TODO Import CSV Function
+// Function to import contact names from a csv file
+fn import_csv() {
+
+}
+
+//TODO Export CSV Function
+// Function to export contact vector to a csv file
+fn export_csv() {
+
+}
+
+//TODO function for search Function
+// Menu for searching by content(HashMaps Keys)
+fn search_ui(){
+
+}
+
+//TODO Search Function
+// iterate through
+fn search_contact() {
+}
+
+//TODO remove data based on key search from vector
+fn remove_data() {
+
+}
+
+//TODO edit data based on key search from vector
+fn edit_data(){
+
+}
+//Function that has the main menu
+fn main_ui(){
+    //TODO make main menu for contact book.
+    // Add, Edit, Delete, Show, Search, Save Contact Book, Load Contact Book
+}
+
+
+
 fn main() {
 
     let mut contact = Contact{..Default::default()};

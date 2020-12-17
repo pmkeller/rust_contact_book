@@ -43,8 +43,19 @@ impl Contact {
 
     //Function to print contact book to screen
     fn print_data(&self) {
-        //TODO make a loop to iterate through the vector contact_book and display the hashmaps contents in a nice formatted way
-        println!("{:?}", self.contact_book);
+
+        if self.contact_book.len() > 0 {
+            for contact_hash in &self.contact_book {
+                println!("--------------------------------------------------------------");
+                println!("{} {}", contact_hash.get("Name").unwrap(), contact_hash.get("Surname").unwrap());
+                println!("Tel: {} \tEmail: {}", contact_hash.get("Tel").unwrap(), contact_hash.get("Email").unwrap());
+                println!("Address: {}", contact_hash.get("Address").unwrap());
+                println!("Date of Birth: {}", contact_hash.get("DateofBirth").unwrap());
+                println!("--------------------------------------------------------------");
+            }
+        } else {
+            println!("Contact Book is empty");
+        }
     }
 }
 
@@ -86,4 +97,5 @@ fn main() {
     let mut contact = Contact{..Default::default()};
 
     user_data_capture(&mut contact);
+    contact.print_data();
 }

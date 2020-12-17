@@ -65,6 +65,7 @@ impl Contact {
     //TODO Import CSV Function
 // Function to import contact names from a csv file
     fn import_csv() {
+        //check crates for a csv loader
     }
 
     //TODO Export CSV Function

@@ -13,24 +13,25 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:BitBucket" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:bitbucket" type="e8cecc67:BranchNodeDescriptor" />
       </path>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:GitHub" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:github" type="e8cecc67:BranchNodeDescriptor" />
       </path>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:GitLab" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:gitlab" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:github" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:github/master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
@@ -50,7 +51,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +107,11 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Cargo.Expand rust_contact_book" />
@@ -116,6 +121,7 @@
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+    <option name="version" value="2" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -129,6 +135,8 @@
       <option name="presentableId" value="Default" />
       <updated>1608155622589</updated>
       <workItem from="1608155623955" duration="38341000" />
+      <workItem from="1608241329324" duration="2163000" />
+      <workItem from="1608641336727" duration="3426000" />
     </task>
     <servers />
   </component>
@@ -146,7 +154,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="github/master" />
                       </list>
                     </value>
                   </entry>
@@ -157,39 +165,48 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1124" y="436" key="#com.intellij.ide.util.MemberChooser" timestamp="1608174707225">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
     <state x="1124" y="436" key="#com.intellij.ide.util.MemberChooser/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608174707225" />
-    <state width="2439" height="411" key="GridCell.Tab.0.bottom" timestamp="1608235130361">
+    <state width="2439" height="411" key="GridCell.Tab.0.bottom" timestamp="1608662434563">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.bottom/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608235130361" />
-    <state width="2439" height="411" key="GridCell.Tab.0.center" timestamp="1608235130361">
+    <state width="2439" height="411" key="GridCell.Tab.0.bottom/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608662434563" />
+    <state width="2439" height="411" key="GridCell.Tab.0.center" timestamp="1608662434562">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.center/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608235130361" />
-    <state width="2439" height="411" key="GridCell.Tab.0.left" timestamp="1608235130361">
+    <state width="2439" height="411" key="GridCell.Tab.0.center/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608662434562" />
+    <state width="2439" height="411" key="GridCell.Tab.0.left" timestamp="1608662434562">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.left/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608235130361" />
-    <state width="2439" height="411" key="GridCell.Tab.0.right" timestamp="1608235130361">
+    <state width="2439" height="411" key="GridCell.Tab.0.left/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608662434562" />
+    <state width="2439" height="411" key="GridCell.Tab.0.right" timestamp="1608662434562">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.right/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608235130361" />
-    <state x="977" y="138" key="SettingsEditor" timestamp="1608235127487">
+    <state width="2439" height="411" key="GridCell.Tab.0.right/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608662434562" />
+    <state x="977" y="138" key="SettingsEditor" timestamp="1608643110500">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state x="977" y="138" key="SettingsEditor/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608235127487" />
-    <state x="911" y="449" key="Vcs.Push.Dialog.v2" timestamp="1608208312760">
+    <state x="977" y="138" key="SettingsEditor/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608643110500" />
+    <state x="911" y="449" key="Vcs.Push.Dialog.v2" timestamp="1608662473170">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state x="911" y="449" key="Vcs.Push.Dialog.v2/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608208312760" />
-    <state x="1136" y="630" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608208301277">
+    <state x="911" y="449" key="Vcs.Push.Dialog.v2/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608662473170" />
+    <state x="170" y="92" width="2298" height="1256" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1608662685569">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state x="1136" y="630" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608208301277" />
+    <state x="170" y="92" width="2298" height="1256" key="com.intellij.history.integration.ui.views.FileHistoryDialog/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608662685569" />
+    <state x="1136" y="630" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608662490588">
+      <screen x="78" y="0" width="2482" height="1440" />
+    </state>
+    <state x="1136" y="630" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608662490588" />
+    <state x="1054" y="603" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1608662576394">
+      <screen x="78" y="0" width="2482" height="1440" />
+    </state>
+    <state x="1054" y="603" key="git4idea.remote.GitConfigureRemotesDialog/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608662576394" />
   </component>
 </project>

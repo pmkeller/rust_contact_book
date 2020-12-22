@@ -1,7 +1,4 @@
-Name,Email,Tel,Address
-steve,me@you.com,90184517515,123 steve rd
-peter,peter@gmail.com,0725110916,44 silson rd
-sara,sara@gmail.com,02382378953,68 augusta
-tom,tom@gmail.com,0964567331,678 Tom rd
-adam,adam@gmail.com,07631234567,988 Adam rd
-paul,paul@gmail.com,075144444,55 silson rd
+Firstname,Surname,DOB,Address,Tel,Email
+sam,smith,1999/9/9,123 street,999-999-9999,samsmith@you.com
+samantha,jones,1998/8/8,245 road avenue,888-888-8888, samanthajones@me.com
+steve,buggens,1990/5/5,786 4th street,777-777-7777,steveb@email.com

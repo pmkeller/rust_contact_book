@@ -2,13 +2,13 @@ use std::io::{stdin, self, Write};
 use std::error::Error;
 use std::{process, mem};
 
-use csv::Reader;
+use csv::{Reader, Writer};
 use serde::{Serialize, Deserialize};
 
 //Global variables
 static PATH: &str = "data/contactbook.csv";
 
-#[derive(Debug, Default, Clone, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize, Clone, PartialEq, Eq)]
 struct Contact {
     first_name: String,
     surname: String,
@@ -47,13 +47,22 @@ impl Contact {
         }
     }
 
-    //TODO remove data based on key search from vector
-    fn remove_data() {
+    fn remove_data(&self, contact_book: &mut Vec<Contact>, p_fname: &str, p_sname: &str) {
+
+        let mut index: usize = 0;
+
+        println!("Searching contacts...");
+        for record in contact_book.clone() {
+            if (record.first_name == p_fname) && (record.surname ==  p_sname) {
+                contact_book.remove(index);
+            }
+            index += 1;
+        }
 
     }
 
     //TODO edit data based on key search from vector
-    fn edit_data() {
+    fn edit_data(&self) {
     }
 
     // Function to import contact names from a csv file
@@ -70,17 +79,51 @@ impl Contact {
         Ok(())
     }
 
-    //TODO Export CSV Function
-    // Function to export contact vector to a csv file
-    fn export_csv() {
+    fn export_csv(&self, contact_book: &Vec<Contact>) -> Result<(), Box<dyn Error>> {
+
+        let mut wtr = Writer::from_path(PATH)?;
+
+        println!("Writing contacts to CSV file.......");
+        for records in contact_book {
+            wtr.serialize(records)?;
+        }
+        wtr.flush()?;
+
+        Ok(())
     }
 
-    //TODO Search Function
-    // iterate through
-    fn search_contact() {
+
+    fn search_contact(&self, contact_book: &Vec<Contact>, text: &str) {
+
+        let mut found: Vec<Contact> = Vec::new();
+
+        println!("Searching contacts...");
+        for record in contact_book {
+            if record.first_name == text {
+                found.push(record.clone());
+            }
+        }
+
+        self.print_data(&found);
     }
 
 }
+
+//Functions calls input_capture and stores into struct
+fn  user_data_capture(contact_book: &mut Vec<Contact>) {
+
+    let name = input_capture("Enter First Name").trim_end().to_string();
+    let surname = input_capture("Enter Surname").trim_end().to_string();
+    let dob = input_capture("Enter date of birth").trim_end().to_string();
+    let address = input_capture("Enter your address").trim_end().to_string();
+    let tel = input_capture("Enter your telephone number").trim_end().to_string();
+    let email = input_capture("Enter email address").trim_end().to_string();
+
+    //assigning captured data to struct and adding it to contact_book vector
+    let temp:Contact= Contact::new(name, surname, dob, address, tel, email);
+    contact_book.push(temp);
+}
+
 
 // Function for getting user input and returns the input
 fn input_capture(text: &str) -> String {
@@ -95,22 +138,6 @@ fn input_capture(text: &str) -> String {
     return input;
 }
 
-//Functions calls input_capture and stores into struct
-fn  user_data_capture(contact_book: &mut Vec<Contact>) {
-    
-    let name = input_capture("Enter First Name").trim_end().to_string();
-    let surname = input_capture("Enter Surname").trim_end().to_string();
-    let dob = input_capture("Enter date of birth").trim_end().to_string();
-    let address = input_capture("Enter your address").trim_end().to_string();
-    let tel = input_capture("Enter your telephone number").trim_end().to_string();
-    let email = input_capture("Enter email address").trim_end().to_string();
-
-    //assigning captured data to struct and adding it to contact_book vector
-    let temp:Contact= Contact::new(name, surname, dob, address, tel, email);
-    println!("{:?}", temp);
-
-    contact_book.push(temp);
-}
 
 //TODO function for search Function
 // Menu for searching by content(HashMaps Keys)
@@ -126,18 +153,32 @@ fn main_ui(){
 
 fn main() {
 
+    // Declaring a new variable of struct Contact
     let mut contact = Contact{..Default::default()};
-
     //this vector stores the data of contact struct as a vector of Contact
     let mut contact_book: Vec<Contact> = Vec::new();
 
-   //import_csv()
+   //import csv
     if let Err(err) = contact.import_csv(&mut contact_book) {
         println!("error running example: {}", err);
         process::exit(1);
     }
 
-    contact.print_data(&contact_book);
-    user_data_capture(&mut contact_book);
-    contact.print_data(&contact_book);
+    //Get new contact data from user
+    //user_data_capture(&mut contact_book);
+
+    //run search implementation
+    //contact.search_contact(&contact_book,"peter");
+
+    //run delete contact from contact_book
+    //contact.remove_data(&mut contact_book, "peter", "keller");
+
+    //print current contact
+    //contact.print_data(&contact_book);
+
+    //export csv
+    if let Err(err) = contact.export_csv(&contact_book) {
+        println!("error running example: {}", err);
+        process::exit(1);
+    }
 }

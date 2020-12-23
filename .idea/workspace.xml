@@ -23,6 +23,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c4d57ee3-9b2f-459c-a986-43c39fe4fa3f" name="Default Changelist" comment="added struct Contact">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/contactbook.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/contactbook.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,11 +53,6 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Cargo.Run">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Expand rust_contact_book" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="expand --bin rust_contact_book --color=always --theme=GitHub --tests" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -85,6 +81,11 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Cargo.Expand rust_contact_book" />
@@ -110,7 +111,8 @@
       <workItem from="1608155623955" duration="38341000" />
       <workItem from="1608241329324" duration="2163000" />
       <workItem from="1608641336727" duration="15179000" />
-      <workItem from="1608694094093" duration="12176000" />
+      <workItem from="1608694094093" duration="14387000" />
+      <workItem from="1608714516260" duration="15467000" />
     </task>
     <task id="LOCAL-00001" summary="Dummy data added to contactbook.csv">
       <created>1608665815437</created>
@@ -126,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608690246893</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Removed Vector contact_book from struct Contact &#10;Moved/Created contact_book: Vec&lt;Contact&gt; into main function scope&#10;&#10;all parameters are now borrowed for Contact impl&#10;   *contact_book parameter for impl is mutable as it needs to be to add new contacts&#10;   &#10;Moved import_csv() into struct impl&#10;   removed p_contact.data_push()&#10;   using contact_book.push() method&#10;   &#10;Removed data_push() from struct impl">
+      <created>1608710175475</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608710175475</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +156,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Dummy data added to contactbook.csv" />
     <MESSAGE value="Import CSV Function&#10;   using serde and csv i read the csv file containing the contact data&#10;   made a temp t_contact: Contact to store the parsed result and mutated p_contact with the data from t_contact" />
-    <option name="LAST_COMMIT_MESSAGE" value="Import CSV Function&#10;   using serde and csv i read the csv file containing the contact data&#10;   made a temp t_contact: Contact to store the parsed result and mutated p_contact with the data from t_contact" />
+    <MESSAGE value="Removed Vector contact_book from struct Contact &#10;Moved/Created contact_book: Vec&lt;Contact&gt; into main function scope&#10;&#10;all parameters are now borrowed for Contact impl&#10;   *contact_book parameter for impl is mutable as it needs to be to add new contacts&#10;   &#10;Moved import_csv() into struct impl&#10;   removed p_contact.data_push()&#10;   using contact_book.push() method&#10;   &#10;Removed data_push() from struct impl" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed Vector contact_book from struct Contact &#10;Moved/Created contact_book: Vec&lt;Contact&gt; into main function scope&#10;&#10;all parameters are now borrowed for Contact impl&#10;   *contact_book parameter for impl is mutable as it needs to be to add new contacts&#10;   &#10;Moved import_csv() into struct impl&#10;   removed p_contact.data_push()&#10;   using contact_book.push() method&#10;   &#10;Removed data_push() from struct impl" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1124" y="436" key="#com.intellij.ide.util.MemberChooser" timestamp="1608174707225">
@@ -158,22 +168,22 @@
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
     <state x="170" y="92" width="2298" height="1256" key="DiffContextDialog/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608709289202" />
-    <state width="2439" height="411" key="GridCell.Tab.0.bottom" timestamp="1608708862624">
+    <state width="2439" height="411" key="GridCell.Tab.0.bottom" timestamp="1608734451373">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.bottom/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608708862624" />
-    <state width="2439" height="411" key="GridCell.Tab.0.center" timestamp="1608708862624">
+    <state width="2439" height="411" key="GridCell.Tab.0.bottom/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608734451373" />
+    <state width="2439" height="411" key="GridCell.Tab.0.center" timestamp="1608734451373">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.center/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608708862624" />
-    <state width="2439" height="411" key="GridCell.Tab.0.left" timestamp="1608708862624">
+    <state width="2439" height="411" key="GridCell.Tab.0.center/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608734451373" />
+    <state width="2439" height="411" key="GridCell.Tab.0.left" timestamp="1608734451373">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.left/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608708862624" />
-    <state width="2439" height="411" key="GridCell.Tab.0.right" timestamp="1608708862624">
+    <state width="2439" height="411" key="GridCell.Tab.0.left/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608734451373" />
+    <state width="2439" height="411" key="GridCell.Tab.0.right" timestamp="1608734451373">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.right/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608708862624" />
+    <state width="2439" height="411" key="GridCell.Tab.0.right/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608734451373" />
     <state width="2439" height="505" key="GridCell.Tab.1.bottom" timestamp="1608691241957">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
@@ -194,10 +204,10 @@
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
     <state x="977" y="138" key="SettingsEditor/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608643110500" />
-    <state x="911" y="449" key="Vcs.Push.Dialog.v2" timestamp="1608690268266">
+    <state x="911" y="449" key="Vcs.Push.Dialog.v2" timestamp="1608710205203">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>
-    <state x="911" y="449" key="Vcs.Push.Dialog.v2/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608690268266" />
+    <state x="911" y="449" key="Vcs.Push.Dialog.v2/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608710205203" />
     <state x="170" y="92" width="2298" height="1256" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1608662685569">
       <screen x="78" y="0" width="2482" height="1440" />
     </state>

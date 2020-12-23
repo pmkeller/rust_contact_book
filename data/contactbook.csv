@@ -1,4 +1,4 @@
-Firstname,Surname,DOB,Address,Tel,Email
+first_name,surname,date_of_birth,address,tel,email
 sam,smith,1999/9/9,123 street,999-999-9999,samsmith@you.com
 samantha,jones,1998/8/8,245 road avenue,888-888-8888, samanthajones@me.com
 steve,buggens,1990/5/5,786 4th street,777-777-7777,steveb@email.com

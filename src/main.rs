@@ -1,27 +1,21 @@
-use std::collections::HashMap;
 use std::io::{stdin, self, Write};
 use std::error::Error;
-use std::process;
+use std::{process, mem};
 
 use csv::Reader;
 use serde::{Serialize, Deserialize};
 
-
-
 //Global variables
 static PATH: &str = "data/contactbook.csv";
 
-#[derive(Eq, PartialEq, Debug, Default, Clone, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 struct Contact {
     first_name: String,
     surname: String,
     date_of_birth: String,
     address: String,
     tel: String,
-    email: String,
-    #[serde(skip)]
-    //TODO put this vector of hashmap as variable outside the struct
-    contact_book: Vec<HashMap<String,String>>,
+    email: String
 }
 
 #[allow(dead_code)]
@@ -34,35 +28,18 @@ impl Contact {
             address: address,
             tel: tel,
             email: email,
-            contact_book: vec![]
         }
     }
 
-    //Function used to push struct data into struct vector of hashmaps contact_book
-    //TODO rewrite function to use the new global variable of contact_book as its no longer be used in the struct Contact
-    fn data_push(&mut self) {
-        let mut contact_hash = HashMap::new(); //remove this
-
-        //replace contact_hash with contact_book
-        contact_hash.insert("Name".to_string(), self.first_name.trim_end().to_string());
-        contact_hash.insert("Surname".to_string(), self.surname.trim_end().to_string());
-        contact_hash.insert("DateofBirth".to_string(), self.date_of_birth.trim_end().to_string());
-        contact_hash.insert("Address".to_string(), self.address.trim_end().to_string());
-        contact_hash.insert("Tel".to_string(), self.tel.trim_end().to_string());
-        contact_hash.insert("Email".to_string(), self.email.trim_end().to_string());
-
-        self.contact_book.push(contact_hash);
-    }
-
     //Function to print contact book to screen
-    fn print_data(&self) {
-        if self.contact_book.len() > 0 {
-            for contact_hash in &self.contact_book {
+    fn print_data(&self, contact_book: &Vec<Contact>) {
+        if contact_book.len() > 0 {
+            for contact in contact_book {
                 println!("--------------------------------------------------------------");
-                println!("{} {}", contact_hash.get("Name").unwrap(), contact_hash.get("Surname").unwrap());
-                println!("Tel: {} \tEmail: {}", contact_hash.get("Tel").unwrap(), contact_hash.get("Email").unwrap());
-                println!("Address: {}", contact_hash.get("Address").unwrap());
-                println!("Date of Birth: {}", contact_hash.get("DateofBirth").unwrap());
+                println!("{} {}", contact.first_name, contact.surname);
+                println!("Tel: {} \tEmail: {}", contact.tel, contact.email);
+                println!("Address: {}", contact.address);
+                println!("Date of Birth: {}", contact.date_of_birth);
                 println!("--------------------------------------------------------------");
             }
         } else {
@@ -77,16 +54,29 @@ impl Contact {
 
     //TODO edit data based on key search from vector
     fn edit_data() {
+    }
 
+    // Function to import contact names from a csv file
+    fn import_csv(&self, contact_book: &mut Vec<Contact>) -> Result<(), Box<dyn Error>>{
+
+        let mut rdr = Reader::from_path(PATH)?;
+
+        println!("Reading and Importing CSV file.......");
+        for result in rdr.deserialize() {
+            let temp= result?;
+
+            contact_book.push(temp);
+        }
+        Ok(())
     }
 
     //TODO Export CSV Function
-// Function to export contact vector to a csv file
+    // Function to export contact vector to a csv file
     fn export_csv() {
     }
 
     //TODO Search Function
-// iterate through
+    // iterate through
     fn search_contact() {
     }
 
@@ -105,56 +95,27 @@ fn input_capture(text: &str) -> String {
     return input;
 }
 
-// Function to import contact names from a csv file
-fn import_csv(p_contact: &mut Contact) -> Result<(), Box<dyn Error>>{
-
-    let mut rdr = Reader::from_path(PATH)?;
-    for result in rdr.deserialize() {
-        let t_contact:Contact = result?;
-
-        //TODO Find another way to copy struct data from struct to another
-        //cant use std::mem::swap as it will swap the contact_book vector leaving it with only one entry
-        p_contact.first_name = t_contact.first_name;
-        p_contact.surname = t_contact.surname;
-        p_contact.date_of_birth = t_contact.date_of_birth;
-        p_contact.address = t_contact.address;
-        p_contact.tel = t_contact.tel;
-        p_contact.email = t_contact.email;
-
-        //function called to push new data into hashmap
-        p_contact.data_push();
-    }
-
-    Ok(())
-}
-
 //Functions calls input_capture and stores into struct
-fn  user_data_capture(p_contact: &mut Contact) {
+fn  user_data_capture(contact_book: &mut Vec<Contact>) {
     
-    let name = input_capture("Enter First Name");
-    let surname = input_capture("Enter Surname");
-    let dob = input_capture("Enter date of birth");
-    let address = input_capture("Enter your address");
-    let tel = input_capture("Enter your telephone number");
-    let email = input_capture("Enter email address");
+    let name = input_capture("Enter First Name").trim_end().to_string();
+    let surname = input_capture("Enter Surname").trim_end().to_string();
+    let dob = input_capture("Enter date of birth").trim_end().to_string();
+    let address = input_capture("Enter your address").trim_end().to_string();
+    let tel = input_capture("Enter your telephone number").trim_end().to_string();
+    let email = input_capture("Enter email address").trim_end().to_string();
 
-    //assigning captured data to struct
-    p_contact.first_name = name;
-    p_contact.surname = surname;
-    p_contact.date_of_birth = dob;
-    p_contact.address = address;
-    p_contact.tel = tel;
-    p_contact.email = email;
+    //assigning captured data to struct and adding it to contact_book vector
+    let temp:Contact= Contact::new(name, surname, dob, address, tel, email);
+    println!("{:?}", temp);
 
-    //function called to push new data into hashmap
-    p_contact.data_push()
+    contact_book.push(temp);
 }
 
 //TODO function for search Function
 // Menu for searching by content(HashMaps Keys)
 fn search_ui(){
 }
-
 
 //Function that has the main menu
 fn main_ui(){
@@ -163,19 +124,20 @@ fn main_ui(){
 }
 
 
-
 fn main() {
 
     let mut contact = Contact{..Default::default()};
 
-    contact.print_data();
+    //this vector stores the data of contact struct as a vector of Contact
+    let mut contact_book: Vec<Contact> = Vec::new();
 
    //import_csv()
-    if let Err(err) = import_csv(&mut contact) {
+    if let Err(err) = contact.import_csv(&mut contact_book) {
         println!("error running example: {}", err);
         process::exit(1);
     }
 
-    user_data_capture(&mut contact);
-    contact.print_data();
+    contact.print_data(&contact_book);
+    user_data_capture(&mut contact_book);
+    contact.print_data(&contact_book);
 }

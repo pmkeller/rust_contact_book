@@ -14,7 +14,7 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
     </configurations>
   </component>
   <component name="CargoProjects">
@@ -23,6 +23,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c4d57ee3-9b2f-459c-a986-43c39fe4fa3f" name="Default Changelist" comment="added struct Contact">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/contactbook.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/contactbook.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
@@ -50,7 +52,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager" selected="Cargo.Run">
     <configuration name="Expand rust_contact_book" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
@@ -81,20 +83,16 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cargo.Expand rust_contact_book" />
         <item itemvalue="Cargo.Expand rust_contact_book" />
       </list>
     </recent_temporary>
   </component>
   <component name="RustProjectSettings">
+    <option name="runRustfmtOnSave" value="true" />
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+    <option name="useRustfmt" value="true" />
     <option name="version" value="2" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -112,7 +110,16 @@
       <workItem from="1608241329324" duration="2163000" />
       <workItem from="1608641336727" duration="15179000" />
       <workItem from="1608694094093" duration="14387000" />
-      <workItem from="1608714516260" duration="15467000" />
+      <workItem from="1608714516260" duration="16553000" />
+      <workItem from="1608787549364" duration="6492000" />
+      <workItem from="1609615891864" duration="7416000" />
+      <workItem from="1609740589666" duration="75000" />
+      <workItem from="1609740693502" duration="237000" />
+      <workItem from="1609741022784" duration="454000" />
+      <workItem from="1609741670344" duration="1991000" />
+      <workItem from="1609743690622" duration="2391000" />
+      <workItem from="1609758969204" duration="3001000" />
+      <workItem from="1610298470810" duration="306000" />
     </task>
     <task id="LOCAL-00001" summary="Dummy data added to contactbook.csv">
       <created>1608665815437</created>
@@ -135,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608710175475</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Done: remove_data(), search_contact(),">
+      <created>1608735159510</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608735159510</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,68 +171,11 @@
     <MESSAGE value="Dummy data added to contactbook.csv" />
     <MESSAGE value="Import CSV Function&#10;   using serde and csv i read the csv file containing the contact data&#10;   made a temp t_contact: Contact to store the parsed result and mutated p_contact with the data from t_contact" />
     <MESSAGE value="Removed Vector contact_book from struct Contact &#10;Moved/Created contact_book: Vec&lt;Contact&gt; into main function scope&#10;&#10;all parameters are now borrowed for Contact impl&#10;   *contact_book parameter for impl is mutable as it needs to be to add new contacts&#10;   &#10;Moved import_csv() into struct impl&#10;   removed p_contact.data_push()&#10;   using contact_book.push() method&#10;   &#10;Removed data_push() from struct impl" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed Vector contact_book from struct Contact &#10;Moved/Created contact_book: Vec&lt;Contact&gt; into main function scope&#10;&#10;all parameters are now borrowed for Contact impl&#10;   *contact_book parameter for impl is mutable as it needs to be to add new contacts&#10;   &#10;Moved import_csv() into struct impl&#10;   removed p_contact.data_push()&#10;   using contact_book.push() method&#10;   &#10;Removed data_push() from struct impl" />
+    <MESSAGE value="Done: remove_data(), search_contact()," />
+    <option name="LAST_COMMIT_MESSAGE" value="Done: remove_data(), search_contact()," />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="1124" y="436" key="#com.intellij.ide.util.MemberChooser" timestamp="1608174707225">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state x="1124" y="436" key="#com.intellij.ide.util.MemberChooser/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608174707225" />
-    <state x="170" y="92" width="2298" height="1256" key="DiffContextDialog" timestamp="1608709289202">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state x="170" y="92" width="2298" height="1256" key="DiffContextDialog/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608709289202" />
-    <state width="2439" height="411" key="GridCell.Tab.0.bottom" timestamp="1608734451373">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.bottom/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608734451373" />
-    <state width="2439" height="411" key="GridCell.Tab.0.center" timestamp="1608734451373">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.center/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608734451373" />
-    <state width="2439" height="411" key="GridCell.Tab.0.left" timestamp="1608734451373">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.left/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608734451373" />
-    <state width="2439" height="411" key="GridCell.Tab.0.right" timestamp="1608734451373">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state width="2439" height="411" key="GridCell.Tab.0.right/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608734451373" />
-    <state width="2439" height="505" key="GridCell.Tab.1.bottom" timestamp="1608691241957">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state width="2439" height="505" key="GridCell.Tab.1.bottom/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608691241957" />
-    <state width="2439" height="505" key="GridCell.Tab.1.center" timestamp="1608691241957">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state width="2439" height="505" key="GridCell.Tab.1.center/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608691241957" />
-    <state width="2439" height="505" key="GridCell.Tab.1.left" timestamp="1608691241957">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state width="2439" height="505" key="GridCell.Tab.1.left/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608691241957" />
-    <state width="2439" height="505" key="GridCell.Tab.1.right" timestamp="1608691241957">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state width="2439" height="505" key="GridCell.Tab.1.right/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608691241957" />
-    <state x="977" y="138" key="SettingsEditor" timestamp="1608643110500">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state x="977" y="138" key="SettingsEditor/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608643110500" />
-    <state x="911" y="449" key="Vcs.Push.Dialog.v2" timestamp="1608710205203">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state x="911" y="449" key="Vcs.Push.Dialog.v2/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608710205203" />
-    <state x="170" y="92" width="2298" height="1256" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1608662685569">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state x="170" y="92" width="2298" height="1256" key="com.intellij.history.integration.ui.views.FileHistoryDialog/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608662685569" />
-    <state x="1136" y="630" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608662490588">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state x="1136" y="630" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608662490588" />
-    <state x="1054" y="603" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1608662576394">
-      <screen x="78" y="0" width="2482" height="1440" />
-    </state>
-    <state x="1054" y="603" key="git4idea.remote.GitConfigureRemotesDialog/78.0.2482.1440/2622.0.1788.1040@78.0.2482.1440" timestamp="1608662576394" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

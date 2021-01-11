@@ -17,12 +17,72 @@ struct App {
 }
 
 impl App {
-    fn new(run: bool) -> Self {
+    fn init(p_run: bool) -> Self {
         Self {
-            run: run,
+            run: p_run,
             contact_book: vec![],
         }
     }
+
+    // Function to import contact names from a csv file
+    fn import_csv(&mut self) -> Result<(), Box<dyn Error>> {
+        let mut rdr = Reader::from_path(PATH)?;
+
+        println!("Reading and Importing CSV file.......\n");
+        for result in rdr.deserialize() {
+            let temp = result?;
+            self.contact_book.push(temp);
+        }
+        Ok(())
+    }
+
+    // Function to export contact names from a csv file
+    fn export_csv(&self) -> Result<(), Box<dyn Error>> {
+        let mut wtr = Writer::from_path(PATH)?;
+
+        println!("Writing contacts to CSV file.......");
+        for records in &self.contact_book {
+            wtr.serialize(records)?;
+        }
+        wtr.flush()?;
+
+        Ok(())
+    }
+
+    fn user_data_capture(&mut self) {
+        let name = input_capture("Enter First Name").trim_end().to_string();
+        let surname = input_capture("Enter Surname").trim_end().to_string();
+        let dob = input_capture("Enter date of birth").trim_end().to_string();
+        let address = input_capture("Enter your address").trim_end().to_string();
+        let tel = input_capture("Enter your telephone number")
+            .trim_end()
+            .to_string();
+        let email = input_capture("Enter email address").trim_end().to_string();
+
+        //assigning captured data to struct and adding it to contact_book vector
+        let temp: Contact = Contact::new(name, surname, dob, address, tel, email);
+        self.contact_book.push(temp);
+    }
+
+    //Function to print all the contacts on the vector to screen
+    fn print_data(&self) {
+        if self.contact_book.len() > 0 {
+            for contact in &self.contact_book {
+                println!("--------------------------------------------------------------");
+                println!("{} {}", contact.first_name, contact.surname);
+                println!("Tel: {} \tEmail: {}", contact.tel, contact.email);
+                println!("Address: {}", contact.address);
+                println!("Date of Birth: {}", contact.date_of_birth);
+                println!("--------------------------------------------------------------");
+            }
+        } else {
+            println!("Contact Book is empty");
+        }
+    }
+
+    //TODO function for search Function
+    // Menu for searching by content(HashMaps Keys)
+    fn search_ui() {}
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, Clone, PartialEq, Eq)]
@@ -65,107 +125,6 @@ impl Contact {
             email: "".to_string(),
         }
     }
-
-    //Function to print all the contacts on the vector to screen
-    fn print_data(&self, contact_book: &Vec<Contact>) {
-        if contact_book.len() > 0 {
-            for contact in contact_book {
-                println!("--------------------------------------------------------------");
-                println!("{} {}", contact.first_name, contact.surname);
-                println!("Tel: {} \tEmail: {}", contact.tel, contact.email);
-                println!("Address: {}", contact.address);
-                println!("Date of Birth: {}", contact.date_of_birth);
-                println!("--------------------------------------------------------------");
-            }
-        } else {
-            println!("Contact Book is empty");
-        }
-    }
-
-    // function to print only one record from struct
-    fn print_record(&self, record: &Contact) {
-        println!("--------------------------------------------------------------");
-        println!("{} {}", record.first_name, record.surname);
-        println!("Tel: {} \tEmail: {}", record.tel, record.email);
-        println!("Address: {}", record.address);
-        println!("Date of Birth: {}", record.date_of_birth);
-        println!("--------------------------------------------------------------");
-    }
-
-    fn remove_data(&self, contact_book: &mut Vec<Contact>, p_fname: &str, p_sname: &str) {
-        let mut index: usize = 0;
-
-        println!("Searching contacts...");
-        for record in contact_book.into_iter() {
-            if (record.first_name == p_fname) && (record.surname == p_sname) {
-                contact_book.remove(index);
-                break;
-            }
-            index += 1;
-        }
-    }
-
-    fn edit_data(&self, contact_book: &mut Vec<Contact>, fname: &str, sname: &str) {
-        let mut index: usize = 0;
-
-        println!("Searching contacts...");
-        for record in contact_book {
-            if record.first_name == fname && record.surname == sname {
-                record.tel = "222-111-1111".to_string();
-                break;
-            }
-            index += 1;
-        }
-    }
-
-    // Function to import contact names from a csv file
-    fn import_csv(&self, contact_book: &mut Vec<Contact>) -> Result<(), Box<dyn Error>> {
-        let mut rdr = Reader::from_path(PATH)?;
-
-        println!("Reading and Importing CSV file.......\n");
-        for result in rdr.deserialize() {
-            let temp = result?;
-            contact_book.push(temp);
-        }
-        Ok(())
-    }
-
-    fn export_csv(&self, contact_book: &Vec<Contact>) -> Result<(), Box<dyn Error>> {
-        let mut wtr = Writer::from_path(PATH)?;
-
-        println!("Writing contacts to CSV file.......");
-        for records in contact_book {
-            wtr.serialize(records)?;
-        }
-        wtr.flush()?;
-
-        Ok(())
-    }
-
-    fn search_contact(&self, contact_book: &Vec<Contact>, text: &str) {
-        println!("Searching contacts...");
-        for record in contact_book {
-            if record.first_name == text {
-                self.print_record(record);
-            }
-        }
-    }
-}
-
-//Functions calls input_capture and stores into struct
-fn user_data_capture(contact_book: &mut Vec<Contact>) {
-    let name = input_capture("Enter First Name").trim_end().to_string();
-    let surname = input_capture("Enter Surname").trim_end().to_string();
-    let dob = input_capture("Enter date of birth").trim_end().to_string();
-    let address = input_capture("Enter your address").trim_end().to_string();
-    let tel = input_capture("Enter your telephone number")
-        .trim_end()
-        .to_string();
-    let email = input_capture("Enter email address").trim_end().to_string();
-
-    //assigning captured data to struct and adding it to contact_book vector
-    let temp: Contact = Contact::new(name, surname, dob, address, tel, email);
-    contact_book.push(temp);
 }
 
 // Function for getting user input and returns the input
@@ -181,10 +140,6 @@ fn input_capture(text: &str) -> String {
 
     return input;
 }
-
-//TODO function for search Function
-// Menu for searching by content(HashMaps Keys)
-fn search_ui() {}
 
 //Function that has the main menu
 fn main_ui() {
@@ -209,29 +164,25 @@ fn main_ui() {
     cyan_ln!("-----------------------------------------------");
 }
 
-fn init() -> (App, Contact) {
-    let mut app = App::new(true);
-    let mut c = Contact::empty();
-
-    //import csv into cb
-    if let Err(err) = c.import_csv(&mut app.contact_book) {
-        println!("error running example: {}", err);
-        process::exit(1);
-    }
-
-    return (app, c);
+fn init() -> App {
+    let mut t: App = App::init(true);
+    t.import_csv();
+    t //return t:App
 }
 
 fn main() {
-    // run init() which returns struct Contact and Vec<Contact> with imported csv file
-    let (mut app, mut contact) = init();
+    // creating a mutable app struct and importing data from csv file into contact_book
+    let mut app = init();
 
-    while (app.run == true) {
+    while app.run == true {
         main_ui();
         let mnu_choice = input_capture("Enter Your Choice").trim_end().to_string();
 
         match mnu_choice.as_str() {
-            "1" => println!("Add New Contact"),
+            "1" => {
+                println!("Add New Contact");
+                app.user_data_capture();
+            }
             "2" => println!("Edit Contact"),
             "3" => {
                 println!("Delete Contact")
@@ -241,7 +192,7 @@ fn main() {
             }
             "5" => {
                 println!("Show All Contact");
-                contact.print_data(&app.contact_book);
+                app.print_data();
             }
             "6" => {
                 println!("Quit");
@@ -252,7 +203,7 @@ fn main() {
     }
 
     //export csv
-    if let Err(err) = contact.export_csv(&app.contact_book) {
+    if let Err(err) = app.export_csv() {
         println!("error running example: {}", err);
         process::exit(1);
     }

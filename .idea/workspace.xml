@@ -21,7 +21,9 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d57ee3-9b2f-459c-a986-43c39fe4fa3f" name="Default Changelist" comment="added struct APP which has the bool for loop run and contact_book:Vec&lt;Contact&gt;">
+    <list default="true" id="c4d57ee3-9b2f-459c-a986-43c39fe4fa3f" name="Default Changelist" comment="move all function to has to do with add,deleteing, editing contacts etc into app impl&#10;redid the init function for the return of App struct which also import the csv file into app.contact_book">
+      <change afterPath="$PROJECT_DIR$/src/controller.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/contactbook.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/contactbook.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
@@ -33,6 +35,13 @@
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Rust File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,7 +59,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="org.rust.disableDetachedFileInspectionE:/RustProjects/rust_contact_book/src/ui/ui.rs" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\RustProjects\rust_contact_book\src\ui" />
+      <recent name="E:\RustProjects\rust_contact_book\src" />
+    </key>
   </component>
   <component name="RunManager" selected="Cargo.Run">
     <configuration name="Expand rust_contact_book" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
@@ -79,11 +95,6 @@
       <option name="redirectInputPath" value="" />
       <method v="2">
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
@@ -123,7 +134,14 @@
       <workItem from="1609743690622" duration="2391000" />
       <workItem from="1609758969204" duration="3001000" />
       <workItem from="1610298470810" duration="1129000" />
-      <workItem from="1610321356892" duration="5898000" />
+      <workItem from="1610321356892" duration="17205000" />
+      <workItem from="1610384302330" duration="19996000" />
+      <workItem from="1610568238854" duration="8266000" />
+      <workItem from="1610634077547" duration="965000" />
+      <workItem from="1610730851101" duration="6885000" />
+      <workItem from="1611092870431" duration="1178000" />
+      <workItem from="1611095461395" duration="598000" />
+      <workItem from="1611257834066" duration="300000" />
     </task>
     <task id="LOCAL-00001" summary="Dummy data added to contactbook.csv">
       <created>1608665815437</created>
@@ -160,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610298783819</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="move all function to has to do with add,deleteing, editing contacts etc into app impl&#10;redid the init function for the return of App struct which also import the csv file into app.contact_book">
+      <created>1610330869281</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610330869281</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +209,8 @@
     <MESSAGE value="Removed Vector contact_book from struct Contact &#10;Moved/Created contact_book: Vec&lt;Contact&gt; into main function scope&#10;&#10;all parameters are now borrowed for Contact impl&#10;   *contact_book parameter for impl is mutable as it needs to be to add new contacts&#10;   &#10;Moved import_csv() into struct impl&#10;   removed p_contact.data_push()&#10;   using contact_book.push() method&#10;   &#10;Removed data_push() from struct impl" />
     <MESSAGE value="Done: remove_data(), search_contact()," />
     <MESSAGE value="added struct APP which has the bool for loop run and contact_book:Vec&lt;Contact&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="added struct APP which has the bool for loop run and contact_book:Vec&lt;Contact&gt;" />
+    <MESSAGE value="move all function to has to do with add,deleteing, editing contacts etc into app impl&#10;redid the init function for the return of App struct which also import the csv file into app.contact_book" />
+    <option name="LAST_COMMIT_MESSAGE" value="move all function to has to do with add,deleteing, editing contacts etc into app impl&#10;redid the init function for the return of App struct which also import the csv file into app.contact_book" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

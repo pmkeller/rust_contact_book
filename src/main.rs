@@ -8,18 +8,25 @@ use serde::{Deserialize, Serialize};
 #[macro_use]
 extern crate colour;
 
+mod controller;
+mod ui;
+
 //Global variables
 static PATH: &str = "data/contactbook.csv";
 
-struct App {
+#[derive(PartialEq)]
+pub struct App {
     run: bool,
+    uisearch: bool,
     contact_book: Vec<Contact>,
 }
 
 impl App {
+    //Function to init app struct
     fn init(p_run: bool) -> Self {
         Self {
             run: p_run,
+            uisearch: true,
             contact_book: vec![],
         }
     }
@@ -50,18 +57,29 @@ impl App {
     }
 
     fn user_data_capture(&mut self) {
-        let name = input_capture("Enter First Name").trim_end().to_string();
-        let surname = input_capture("Enter Surname").trim_end().to_string();
-        let dob = input_capture("Enter date of birth").trim_end().to_string();
-        let address = input_capture("Enter your address").trim_end().to_string();
-        let tel = input_capture("Enter your telephone number")
+        let name = controller::input_capture("Enter First Name")
             .trim_end()
             .to_string();
-        let email = input_capture("Enter email address").trim_end().to_string();
+        let surname = controller::input_capture("Enter Surname")
+            .trim_end()
+            .to_string();
+        let dob = controller::input_capture("Enter date of birth")
+            .trim_end()
+            .to_string();
+        let address = controller::input_capture("Enter your address")
+            .trim_end()
+            .to_string();
+        let tel = controller::input_capture("Enter your telephone number")
+            .trim_end()
+            .to_string();
+        let email = controller::input_capture("Enter email address")
+            .trim_end()
+            .to_string();
 
         //assigning captured data to struct and adding it to contact_book vector
-        let temp: Contact = Contact::new(name, surname, dob, address, tel, email);
-        self.contact_book.push(temp);
+        //let temp: Contact = Contact::new(name, surname, dob, address, tel, email);
+        self.contact_book
+            .push(Contact::new(name, surname, dob, address, tel, email));
     }
 
     //Function to print all the contacts on the vector to screen
@@ -80,9 +98,15 @@ impl App {
         }
     }
 
-    //TODO function for search Function
-    // Menu for searching by content(HashMaps Keys)
-    fn search_ui() {}
+    //Function to print a struct Contact
+    fn print_record(&self, record: &Contact) {
+        println!("--------------------------------------------------------------");
+        println!("{} {}", record.first_name, record.surname);
+        println!("Tel: {} \tEmail: {}", record.tel, record.email);
+        println!("Address: {}", record.address);
+        println!("Date of Birth: {}", record.date_of_birth);
+        println!("--------------------------------------------------------------");
+    }
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, Clone, PartialEq, Eq)]
@@ -127,46 +151,14 @@ impl Contact {
     }
 }
 
-// Function for getting user input and returns the input
-fn input_capture(text: &str) -> String {
-    let mut input = String::new();
-
-    println!("{}: ", text);
-    io::stdout().flush().unwrap();
-
-    stdin()
-        .read_line(&mut input)
-        .expect("Did not enter a correct string");
-
-    return input;
-}
-
-//Function that has the main menu
-fn main_ui() {
-    //TODO make main menu for contact book.
-    // Add, Edit, Delete, Show, Search, Save Contact Book, Load Contact Book
-    cyan_ln!("-------------Contact Address Book--------------");
-    blue_ln!("Designed in Rust Language \t By Peter Keller");
-    cyan_ln!("-----------------------------------------------");
-    println!();
-    white!("1) ");
-    yellow_ln!("Add New Contact");
-    white!("2) ");
-    yellow_ln!("Edit Contact");
-    white!("3) ");
-    yellow_ln!("Delete Contact");
-    white!("4) ");
-    yellow_ln!("Search For Contact");
-    white!("5) ");
-    yellow_ln!("Show All Contacts");
-    white!("6) ");
-    yellow_ln!("Quit");
-    cyan_ln!("-----------------------------------------------");
-}
-
 fn init() -> App {
     let mut t: App = App::init(true);
-    t.import_csv();
+
+    if let Err(err) = t.import_csv() {
+        println!("error importing csv file: {}", err);
+        process::exit(1);
+    }
+
     t //return t:App
 }
 
@@ -175,36 +167,10 @@ fn main() {
     let mut app = init();
 
     while app.run == true {
-        main_ui();
-        let mnu_choice = input_capture("Enter Your Choice").trim_end().to_string();
-
-        match mnu_choice.as_str() {
-            "1" => {
-                println!("Add New Contact");
-                app.user_data_capture();
-            }
-            "2" => println!("Edit Contact"),
-            "3" => {
-                println!("Delete Contact")
-            }
-            "4" => {
-                println!("Search Contact");
-            }
-            "5" => {
-                println!("Show All Contact");
-                app.print_data();
-            }
-            "6" => {
-                println!("Quit");
-                break;
-            }
-            _ => println!("Please pick a number from the menu"),
-        }
-    }
-
-    //export csv
-    if let Err(err) = app.export_csv() {
-        println!("error running example: {}", err);
-        process::exit(1);
+        ui::main_ui();
+        let mnu_choice = controller::input_capture("Enter Your Choice")
+            .trim_end()
+            .to_string();
+        controller::main_match(mnu_choice, &mut app);
     }
 }

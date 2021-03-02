@@ -174,3 +174,5 @@ fn main() {
         controller::main_match(mnu_choice, &mut app);
     }
 }
+
+//TODO Make a GUI for app

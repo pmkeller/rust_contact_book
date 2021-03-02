@@ -22,10 +22,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4d57ee3-9b2f-459c-a986-43c39fe4fa3f" name="Default Changelist" comment="move all function to has to do with add,deleteing, editing contacts etc into app impl&#10;redid the init function for the return of App struct which also import the csv file into app.contact_book">
-      <change afterPath="$PROJECT_DIR$/src/controller.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/contactbook.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/contactbook.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,6 +69,7 @@
       <option name="command" value="expand --bin rust_contact_book --color=always --theme=GitHub --tests" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
@@ -87,6 +84,7 @@
       <option name="command" value="run --package rust_contact_book --bin rust_contact_book" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
@@ -142,6 +140,7 @@
       <workItem from="1611092870431" duration="1178000" />
       <workItem from="1611095461395" duration="598000" />
       <workItem from="1611257834066" duration="300000" />
+      <workItem from="1614648478153" duration="29000" />
     </task>
     <task id="LOCAL-00001" summary="Dummy data added to contactbook.csv">
       <created>1608665815437</created>

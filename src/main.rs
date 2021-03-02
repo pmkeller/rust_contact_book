@@ -176,3 +176,4 @@ fn main() {
 }
 
 //TODO Make a GUI for app
+//TODO cos i can
